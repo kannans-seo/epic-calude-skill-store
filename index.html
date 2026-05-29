@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Epic Slope — SEO Skill Store for Claude</title>
+  <meta name="description" content="22 engineered SEO skills for Claude. Built with real agency workflows, live data, and strict output specs. Full bundle at $100." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0b0e13;
+      --surface: #13181f;
+      --surface2: #1a2130;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0ede8;
+      --muted: #8a95a3;
+      --accent: #1D9E75;
+      --accent-light: #5DCAA5;
+      --accent-bg: rgba(29,158,117,0.10);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(11,14,19,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .nav-logo span { color: var(--accent-light); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #17856200; border: 1px solid var(--accent); color: var(--accent-light); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-bg);
+      border: 1px solid rgba(29,158,117,0.3);
+      color: var(--accent-light);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent-light);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent-light);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: #18896400; border: 1px solid var(--accent); transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--muted);
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--text); }
+
+    /* ── STATS ── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 4rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 160px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SKILLS GRID ── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      padding: 1.25rem 1.5rem;
+      transition: background 0.2s;
+    }
+    .skill-card:hover { background: var(--surface2); }
+
+    .skill-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      line-height: 1.35;
+    }
+
+    .skill-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── BUNDLE CTA ── */
+    .bundle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bundle::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% -20%, rgba(29,158,117,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .bundle h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .bundle p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+
+    .price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .price-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .bundle .btn-primary {
+      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .includes {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .includes span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .includes span::before {
+      content: '✓';
+      color: var(--accent-light);
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer a { color: var(--accent-light); }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .section { padding: 0 1.25rem 4rem; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">epic<span>slope</span></div>
+  <a href="https://www.epicslope.partners/skill-store" class="nav-cta" target="_blank" rel="noopener">
+    Get Full Bundle →
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="badge">22 skills · Claude Code &amp; claude.ai</div>
+  <h1>Engineered SEO skills.<br><em>Not just prompted.</em></h1>
+  <p class="hero-sub">
+    Structured SKILL.md files built with real agency workflows, live data, and strict output specs — so Claude executes like a specialist, not a generalist.
+  </p>
+  <div class="hero-actions">
+    <a href="https://www.epicslope.partners/skill-store" class="btn-primary" target="_blank" rel="noopener">
+      Visit Skill Store ↗
+    </a>
+    <a href="https://checkout.dodopayments.com/buy/pdt_0Ndey5Aq8rjfqhHtDWFq9?quantity=1&redirect_url=https://epicslope.webflow.io%2Fskill-store-thank-you" class="btn-ghost" target="_blank" rel="noopener">
+      Buy full bundle — $100
+    </a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">22</div>
+    <div class="stat-label">SEO Skills</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">5</div>
+    <div class="stat-label">Categories</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">$100</div>
+    <div class="stat-label">Full Bundle</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">0</div>
+    <div class="stat-label">Recurring Fees</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>What's inside</h2>
+    <p>Skills across SEO, AI &amp; GEO, Technical, Content, and Analysis</p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-tag">Technical</div>
+      <div class="skill-name">Ahrefs Technical SEO Audit</div>
+      <div class="skill-desc">Transforms a completed Ahrefs Site Audit crawl into a polished agency-grade audit document.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">AI &amp; GEO</div>
+      <div class="skill-name">AI Visibility Report</div>
+      <div class="skill-desc">Audit your brand's presence across ChatGPT, Perplexity &amp; Google AI Overviews vs competitors.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Analysis</div>
+      <div class="skill-name">Backlink Opportunity Analysis</div>
+      <div class="skill-desc">Finds every referring domain competitors have that you don't — grouped by acquisition strategy.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">SEO</div>
+      <div class="skill-name">BOFU Keyword Research</div>
+      <div class="skill-desc">Build a complete bottom-of-funnel keyword spreadsheet — generics, alternatives, and vs keywords.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">AI &amp; GEO</div>
+      <div class="skill-name">Buzz Radar</div>
+      <div class="skill-desc">Surfaces what's trending in SEO, AI &amp; GEO right now from Reddit, Hacker News &amp; LinkedIn.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Analysis</div>
+      <div class="skill-name">Cannibalization Score</div>
+      <div class="skill-desc">Calculates what % of a domain's keywords have multiple pages competing in Google.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Content</div>
+      <div class="skill-name">Content Outline Builder</div>
+      <div class="skill-desc">Research-driven SEO content outlines with Ahrefs data, SERP analysis &amp; full FAQ answers.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Content</div>
+      <div class="skill-name">Figma Ad Creative Builder</div>
+      <div class="skill-desc">Build pixel-perfect HTML ad creatives in multiple sizes and push them directly to Figma.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Content</div>
+      <div class="skill-name">Fix Grammar (Batch URL)</div>
+      <div class="skill-desc">Fetches content from any list of URLs and returns only the grammar &amp; spelling fixes needed.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Content</div>
+      <div class="skill-name">GSC Performance Drop Analysis</div>
+      <div class="skill-desc">Compares two 3-month GSC periods, finds pages where both clicks &amp; impressions dropped.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">SEO</div>
+      <div class="skill-name">Image Alt Text Generator</div>
+      <div class="skill-desc">Generates SEO-optimised, WCAG-compliant alt text for every image in an Excel/CSV file.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">SEO</div>
+      <div class="skill-name">Keyword Gap Report</div>
+      <div class="skill-desc">Identifies every keyword competitors rank for that you don't — clustered and prioritized.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">SEO</div>
+      <div class="skill-name">Meta Tag Generator</div>
+      <div class="skill-desc">Crawls URLs and writes unique title tags, meta descriptions &amp; H1s for every page.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">SEO</div>
+      <div class="skill-name">Pillar Keyword Analysis</div>
+      <div class="skill-desc">Groups Ahrefs keyword data into themed clusters with opportunity scores and insights.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Technical</div>
+      <div class="skill-name">Schema Markup Generator</div>
+      <div class="skill-desc">Crawls any URL, detects its page type, and generates ready-to-paste JSON-LD schema markup.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Analysis</div>
+      <div class="skill-name">SEO Wins Audit</div>
+      <div class="skill-desc">Surfaces quick wins and urgent findings from live GSC + Ahrefs data for any domain.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Analysis</div>
+      <div class="skill-name">SERP Similarity Analysis</div>
+      <div class="skill-desc">Determines if two keywords share enough SERP overlap to target with one page or two.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Technical</div>
+      <div class="skill-name">Technical SEO Audit (Full)</div>
+      <div class="skill-desc">Ahrefs Site Audit → Word report + Excel workbook with all affected URLs, P0–P3 prioritized.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Technical</div>
+      <div class="skill-name">Ad Campaign Analyzer</div>
+      <div class="skill-desc">Reviews campaign data, finds performance issues, and shows what to cut, scale, or test.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Technical</div>
+      <div class="skill-name">Deep Dive (Section Research)</div>
+      <div class="skill-desc">Researches any content outline section and returns cited insights, angles, stats, and gaps.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Analysis</div>
+      <div class="skill-name">Competitive Landscape Analysis</div>
+      <div class="skill-desc">Client-ready 3-page competitive SEO report — rankings, share of voice, targeting matrix.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-tag">Technical</div>
+      <div class="skill-name">Website Audit (SquirrelScan)</div>
+      <div class="skill-desc">Full-site audit across 230+ rules covering SEO, security, accessibility, performance &amp; more.</div>
+    </div>
+  </div>
+
+  <!-- BUNDLE CTA -->
+  <div class="bundle">
+    <h2>Full Bundle — All 22 Skills</h2>
+    <p>Every skill included. Instant access. No recurring fees.</p>
+    <div class="price-row">
+      <div class="price">$100</div>
+      <div class="price-note">one-time</div>
+    </div>
+    <a href="https://www.epicslope.partners/skill-store" class="btn-primary" target="_blank" rel="noopener">
+      Get All 22 Skills ↗
+    </a>
+    <div class="includes">
+      <span>Instant download</span>
+      <span>Claude Code &amp; claude.ai</span>
+      <span>No subscription</span>
+      <span>Real agency workflows</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Epic Slope Partners ·
+    <a href="https://www.epicslope.partners/skill-store" target="_blank" rel="noopener">epicslope.partners/skill-store</a>
+  </p>
+</footer>
+
+</body>
+</html>
